@@ -1,0 +1,76 @@
+### Get all books
+GET http://localhost:3000/api/books
+
+### Get book by ID
+GET http://localhost:3000/api/books/1
+
+### Get book by ID (not found)
+GET http://localhost:3000/api/books/999
+
+### Filter books by genre
+GET http://localhost:3000/api/books?genre=fantasy
+
+### Filter books by year
+GET http://localhost:3000/api/books?year=1949
+
+### Filter books by genre and year
+GET http://localhost:3000/api/books?genre=fantasy&year=1937
+
+### Search books by title
+GET http://localhost:3000/api/books/search?title=node
+
+### Create a new book
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+    "title": "Node.js Design Patterns",
+    "authorId": 3,
+    "genre": "programming",
+    "year": 2020
+}
+
+### Create a new book (missing required field)
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+    "title": "Test Book"
+}
+
+### Create a new book (author not found)
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+    "title": "Bad Book",
+    "authorId": 999,
+    "genre": "test",
+    "year": 2023
+}
+
+### Update a book
+PATCH http://localhost:3000/api/books/1
+Content-Type: application/json
+
+{
+    "year": 1938
+}
+
+### Delete a book
+DELETE http://localhost:3000/api/books/5
+
+### Get all authors
+GET http://localhost:3000/api/authors
+
+### Get author by ID
+GET http://localhost:3000/api/authors/1
+
+### Get books by author
+GET http://localhost:3000/api/authors/1/books
+
+### Get statistics
+GET http://localhost:3000/api/statistics
+
+### Unknown route
+GET http://localhost:3000/api/unknown
